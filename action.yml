@@ -32,7 +32,7 @@ runs:
     - name: Install afdian-sponsor
       uses: jaxxstorm/action-install-gh-release@v1
       with:
-        repo: Sn0wo2/afdian-sponsor
+        repo: snltty/afdian-sponsor
         tag: ${{ steps.resolve.outputs.version }}
         cache: ${{ inputs.cache == 'false' && '' || inputs.cache }}
 
