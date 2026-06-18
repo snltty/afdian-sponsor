@@ -28,13 +28,13 @@ builds:
       - -s -w -buildid=
       - -extldflags=-static
       - -linkmode internal
-      - -X github.com/Sn0wo2/afdian-sponsor/version.version={{.Version}}
-      - -X github.com/Sn0wo2/afdian-sponsor/version.commit={{.Commit}}
-      - -X github.com/Sn0wo2/afdian-sponsor/version.date={{.Date}}
+      - -X github.com/snltty/afdian-sponsor/version.version={{.Version}}
+      - -X github.com/snltty/afdian-sponsor/version.commit={{.Commit}}
+      - -X github.com/snltty/afdian-sponsor/version.date={{.Date}}
 
 dockers_v2:
   - images:
-      - "ghcr.io/sn0wo2/{{ .ProjectName }}"
+      - "ghcr.io/snltty/{{ .ProjectName }}"
     tags:
       - "{{ .Tag }}"
       - "{{ if .IsNightly }}nightly{{ end }}"
