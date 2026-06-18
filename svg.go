@@ -190,8 +190,8 @@ func Generate(client *http.Client, activeSponsors, expiredSponsors []Sponsor, cf
 	err = t.Execute(&b, struct {
 		Width           int
 		Height          int
-		Width1          int,
-		Height1         int,
+		Width1          int
+		Height1         int
 		FontSize        int
 		Sponsors        []Sponsor
 		ActiveSponsors  []Sponsor
