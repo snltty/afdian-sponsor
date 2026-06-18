@@ -10,6 +10,7 @@ import (
 )
 
 func RunCMD(name string, args ...string) (string, error) {
+	// nolint:gosec
 	cmd := exec.Command(name, args...)
 
 	output, err := cmd.CombinedOutput()
@@ -27,7 +28,7 @@ func RunCMD(name string, args ...string) (string, error) {
 
 func ExecuteStep(description string, command string, args ...string) {
 	fmt.Println(description)
-
+	// nolint:gosec
 	cmd := exec.Command(command, args...)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
