@@ -53,7 +53,7 @@ const svgTPL = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.
 {{if and .ActiveSponsors .ExpiredSponsors}}
 <line class="separator" x1="{{.LineX1}}" y1="{{.LineY}}" x2="{{.LineX2}}" y2="{{.LineY}}" stroke-width="1"/>
 {{end}}
-</svg>`
+<rect x="1" y="1" width="{{.Width1}}" height="{{.Height1}}" fill="none" stroke="#ddd" stroke-width="1"/></svg>`
 
 const emptySVG = `<svg width="1135" height="100" xmlns="http://www.w3.org/2000/svg" style="background-color:transparent;"></svg>`
 
@@ -92,6 +92,8 @@ func Generate(client *http.Client, activeSponsors, expiredSponsors []Sponsor, cf
 	expiredHeight := numExpiredRows * rowHeight
 	height := paddingY + activeHeight + separatorHeight + expiredHeight
 	width := cfg.AvatarsPerRow*(cfg.AvatarSize+cfg.Margin) - cfg.Margin + paddingX*2
+	height1 := height-2
+	width1 := width-2
 	svgCenterX := width / 2
 	svgCenterY := height / 2
 
@@ -188,6 +190,8 @@ func Generate(client *http.Client, activeSponsors, expiredSponsors []Sponsor, cf
 	err = t.Execute(&b, struct {
 		Width           int
 		Height          int
+		Width1:         int,
+		Height1:        int,
 		FontSize        int
 		Sponsors        []Sponsor
 		ActiveSponsors  []Sponsor
@@ -198,6 +202,8 @@ func Generate(client *http.Client, activeSponsors, expiredSponsors []Sponsor, cf
 	}{
 		Width:           width,
 		Height:          height,
+		Width1:          width-2,
+		Height1:         height-2,
 		FontSize:        fontSize,
 		Sponsors:        allSponsors,
 		ActiveSponsors:  activeSponsors,
