@@ -22,7 +22,7 @@ runs:
         if [ -n "${{ inputs.version }}" ]; then
           echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
         elif [[ "${{ github.action_ref }}" =~ ^v[0-9]+$ ]]; then
-          latest=$(gh api repos/Sn0wo2/afdian-sponsor/releases \
+          latest=$(gh api repos/snltty/afdian-sponsor/releases \
             --jq '.[] | select(.tag_name | startswith("${{ github.action_ref }}.")) | .tag_name' | head -n1)
           echo "version=${latest:-latest}" >> "$GITHUB_OUTPUT"
         else
