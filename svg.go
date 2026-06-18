@@ -95,8 +95,7 @@ func Generate(client *http.Client, activeSponsors, expiredSponsors []Sponsor, cf
 	svgCenterX := width / 2
 	svgCenterY := height / 2
 
-	var allSponsors []Sponsor
-
+	allSponsors := make([]Sponsor, 0, len(activeSponsors)+len(expiredSponsors))
 	allSponsors = append(allSponsors, activeSponsors...)
 	allSponsors = append(allSponsors, expiredSponsors...)
 
