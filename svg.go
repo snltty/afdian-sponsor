@@ -92,8 +92,6 @@ func Generate(client *http.Client, activeSponsors, expiredSponsors []Sponsor, cf
 	expiredHeight := numExpiredRows * rowHeight
 	height := paddingY + activeHeight + separatorHeight + expiredHeight
 	width := cfg.AvatarsPerRow*(cfg.AvatarSize+cfg.Margin) - cfg.Margin + paddingX*2
-	height1 := height-2
-	width1 := width-2
 	svgCenterX := width / 2
 	svgCenterY := height / 2
 
