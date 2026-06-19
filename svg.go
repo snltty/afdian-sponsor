@@ -53,7 +53,7 @@ const svgTPL = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.
 {{if and .ActiveSponsors .ExpiredSponsors}}
 <line class="separator" x1="{{.LineX1}}" y1="{{.LineY}}" x2="{{.LineX2}}" y2="{{.LineY}}" stroke-width="1"/>
 {{end}}
-<rect x="2" y="2" width="{{.Width1}}" height="{{.Height1}}" fill="none" stroke="#ddd" stroke-width="2"/></svg>`
+<rect x="2" y="2" width="{{.Width1}}" height="{{.Height1}}" fill="none" stroke="#ccc" stroke-width="2"/></svg>`
 
 const emptySVG = `<svg width="1135" height="100" xmlns="http://www.w3.org/2000/svg" style="background-color:transparent;"></svg>`
 
